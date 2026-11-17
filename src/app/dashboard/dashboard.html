@@ -1,0 +1,23 @@
+<h1>Dashboard</h1>
+
+@if (loading()) {
+  <p>Loading profile…</p>
+} @else if (error()) {
+  <p class="banner">{{ error() }}</p>
+} @else {
+  <p>Signed in as <strong>{{ me()!.email }}</strong> — profile loaded from <code>/api/me</code> with your JWT attached automatically.</p>
+  <p>Token issued at {{ me()!.issuedAt }}.</p>
+}
+
+<h2>Anatomy of your JWT</h2>
+<p>A JWT is three base64url strings joined by dots:</p>
+<ol>
+  <li><strong>Header</strong> (algorithm) — {{ tokenParts().length > 0 ? tokenParts()[0].slice(0, 24) + '…' : '—' }}</li>
+  <li><strong>Payload</strong> (the claims) — {{ tokenParts().length > 1 ? tokenParts()[1].slice(0, 24) + '…' : '—' }}</li>
+  <li><strong>Signature</strong> (proof it wasn't forged) — {{ tokenParts().length > 2 ? tokenParts()[2].slice(0, 24) + '…' : '—' }}</li>
+</ol>
+
+@if (tokenPayload()) {
+  <h3>Decoded payload</h3>
+  <pre>{{ tokenPayload() }}</pre>
+}

@@ -1,0 +1,126 @@
+/* Global styles for the auth demo */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f5f7;
+  color: #1a1a2e;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #4338ca;
+  color: white;
+}
+
+header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header button {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+
+main {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 2px solid #4338ca;
+  outline-offset: 1px;
+}
+
+button[type='submit'] {
+  background: #4338ca;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type='submit']:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}
+
+.errors {
+  margin: -0.5rem 0 1rem;
+  padding-left: 1.25rem;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.banner {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.hint {
+  color: #64748b;
+}
+
+pre.state {
+  background: #eef2ff;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: #4338ca;
+}
+
+pre {
+  background: #1e1b4b;
+  color: #c7d2fe;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}

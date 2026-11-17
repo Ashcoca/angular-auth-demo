@@ -1,0 +1,39 @@
+<h1>Sign in</h1>
+<p class="hint">Demo credentials: ash@demo.dev / password123</p>
+
+<form (submit)="onSubmit($event)" novalidate>
+  <label>
+    Email
+    <input type="email" [formField]="loginForm.email" />
+  </label>
+  @if (loginForm.email().touched() && loginForm.email().invalid()) {
+    <ul class="errors">
+      @for (error of loginForm.email().errors(); track $index) {
+        <li>{{ error.message }}</li>
+      }
+    </ul>
+  }
+
+  <label>
+    Password
+    <input type="password" [formField]="loginForm.password" />
+  </label>
+  @if (loginForm.password().touched() && loginForm.password().invalid()) {
+    <ul class="errors">
+      @for (error of loginForm.password().errors(); track $index) {
+        <li>{{ error.message }}</li>
+      }
+    </ul>
+  }
+
+  <button type="submit" [disabled]="loginForm().invalid() || isSubmitting()">
+    {{ isSubmitting() ? 'Signing in…' : 'Sign in' }}
+  </button>
+</form>
+
+@if (errorMessage()) {
+  <p class="banner">{{ errorMessage() }}</p>
+}
+
+<!-- Live form state: proof that everything is a signal -->
+<pre class="state">valid: {{ loginForm().valid() }} · dirty: {{ loginForm().dirty() }} · touched: {{ loginForm().touched() }}</pre>

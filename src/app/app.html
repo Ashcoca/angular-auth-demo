@@ -1,0 +1,13 @@
+<header>
+  <span class="brand">auth-demo</span>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    @if (auth.isLoggedIn()) {
+      <button (click)="auth.logout()">Log out</button>
+    }
+  </nav>
+</header>
+
+<main>
+  <router-outlet />
+</main>
